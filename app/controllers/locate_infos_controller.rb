@@ -1,5 +1,6 @@
 class LocateInfosController < ApplicationController
   def create
+    put "testtest"
     @locate_info = LocateInfo.new(create_params)
 
     # エラー処理
