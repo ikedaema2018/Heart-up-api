@@ -1,4 +1,11 @@
 class LocateInfosController < ApplicationController
+
+  def index
+    @locate_infos = LocateInfo.all
+    render json: @locate_infos
+    puts @locate_infos
+  end
+
   def create
     puts "testtest"
     locate_info = LocateInfo.new(create_params)
