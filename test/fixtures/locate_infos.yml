@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ido: MyString
+  keido: MyString
+
+two:
+  ido: MyString
+  keido: MyString
