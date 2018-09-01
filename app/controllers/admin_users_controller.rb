@@ -1,4 +1,6 @@
 class AdminUsersController < ApplicationController
+  skip_before_action :login_check, only: [:create]
+  
   def create
     user = User.find_by(email: params[:admin][:email])
 

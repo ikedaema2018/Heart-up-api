@@ -4,6 +4,7 @@ class CreateLocateInfos < ActiveRecord::Migration[5.1]
       t.string :nayami
       t.string :ido
       t.string :keido
+      t.integer :user_id
       t.timestamps
     end
   end

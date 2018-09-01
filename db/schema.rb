@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20180830011900) do
     t.string "nayami"
     t.string "ido"
     t.string "keido"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
