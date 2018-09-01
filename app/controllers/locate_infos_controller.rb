@@ -6,7 +6,7 @@ class LocateInfosController < ApplicationController
   end
 
   def create
-    puts "testtest"
+    puts params["auth_token"]
     @locate_info = LocateInfo.new(create_params)
 
     # エラー処理
@@ -19,6 +19,6 @@ class LocateInfosController < ApplicationController
 
   private
   def create_params
-    params.require(:locate).permit(:ido, :keido)
+    params.require(:locate).permit(:ido, :keido, :nayami)
   end
 end

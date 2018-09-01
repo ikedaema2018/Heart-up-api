@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 20180830011900) do
 
   create_table "locate_infos", force: :cascade do |t|
+    t.string "nayami"
     t.string "ido"
     t.string "keido"
     t.datetime "created_at", null: false
