@@ -1,8 +1,9 @@
 class LocateInfosController < ApplicationController
 
   def index
-    @locate_info = LocateInfo.all
-    render json: @locate_info
+    @locate_infos = LocateInfo.all
+    p @locate_infos
+    render json: @locate_infos
   end
 
   def create
