@@ -6,5 +6,6 @@ class LocateInfoSerializer < ActiveModel::Serializer
              :user_id
              
   belongs_to :user
+  has_many :nayami_comments
 
 end
