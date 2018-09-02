@@ -19,6 +19,12 @@ class LocateInfosController < ApplicationController
     end
   end
 
+  def show
+    @id = params[:id]
+    @locate_info = LocateInfo.find(@id)
+    render json: @locate_info
+  end
+
   private
   def create_params
     params.require(:locate).permit(:ido, :keido, :nayami).merge(user_id: @user.id)
