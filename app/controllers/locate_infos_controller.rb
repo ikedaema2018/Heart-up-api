@@ -7,13 +7,12 @@ class LocateInfosController < ApplicationController
   end
 
   def create
-    puts params["auth_token"]
 
     @locate_info = LocateInfo.new(create_params)
 
     # エラー処理
     unless @locate_info.save # もし、memoが保存できなかったら
-      render json:@error_message = [memo.errors.full_messages].compact # エラーが入ってるインスタンス変数を定義
+      render json:@error_message = [@locate_info.errors.full_messages].compact # エラーが入ってるインスタンス変数を定義
     else
       render json: @locate_info
     end

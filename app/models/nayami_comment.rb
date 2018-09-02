@@ -1,0 +1,3 @@
+class NayamiComment < ApplicationRecord
+  
+end

@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180830011900) do
+ActiveRecord::Schema.define(version: 20180902041803) do
 
   create_table "locate_infos", force: :cascade do |t|
     t.string "nayami"
     t.string "ido"
     t.string "keido"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "nayami_comments", force: :cascade do |t|
+    t.string "nayami_comment"
+    t.integer "locate_info_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

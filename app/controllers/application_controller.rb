@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
     def login_check
       @user = User.find_by(auth_token: params["auth_token"])
       if @user.nil?
+        puts "ユーザー情報がおかしい"
         render status: 401, json: { status: 401, message: 'ユーザー情報がおかしい' }
       end
     end

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/locate_infos/:id', to: 'locate_infos#show'
   post '/admin', to: 'admin_users#create'
 
+  post '/nayami_comments', to: 'nayami_comments#create'
 end
