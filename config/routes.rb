@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/locate_infos/find_my_shabon', to: 'locate_infos#find_my_shabon'
   get '/locate_infos/:id', to: 'locate_infos#show'
  
-
+  
 
   post '/admin', to: 'admin_users#create'
 

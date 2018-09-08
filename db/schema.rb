@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20180902041803) do
     t.string "ido"
     t.string "keido"
     t.integer "user_id"
+    t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +34,9 @@ ActiveRecord::Schema.define(version: 20180902041803) do
     t.string "user_name"
     t.string "email"
     t.string "password_digest"
+    t.integer "age"
+    t.string "gender"
+    t.string "self_introduce"
     t.string "auth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

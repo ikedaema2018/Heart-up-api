@@ -5,6 +5,7 @@ class CreateLocateInfos < ActiveRecord::Migration[5.1]
       t.string :ido
       t.string :keido
       t.integer :user_id
+      t.string :color
       t.timestamps
     end
   end

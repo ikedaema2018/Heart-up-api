@@ -32,6 +32,6 @@ class LocateInfosController < ApplicationController
 
   private
   def create_params
-    params.require(:locate).permit(:ido, :keido, :nayami).merge(user_id: @user.id)
+    params.require(:locate).permit(:ido, :keido, :nayami, :color).merge(user_id: @user.id)
   end
 end

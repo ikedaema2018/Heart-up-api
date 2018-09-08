@@ -3,7 +3,8 @@ class LocateInfoSerializer < ActiveModel::Serializer
              :nayami,
              :ido,
              :keido,
-             :user_id
+             :user_id,
+             :color
              
   belongs_to :user
   has_many :nayami_comments
