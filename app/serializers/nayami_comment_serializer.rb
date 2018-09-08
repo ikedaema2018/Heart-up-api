@@ -4,4 +4,5 @@ class NayamiCommentSerializer < ActiveModel::Serializer
              :locate_info_id,
              :user_id
   belongs_to :locate_info
+             :user
 end
