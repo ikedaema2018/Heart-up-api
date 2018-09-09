@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   post '/admin', to: 'admin_users#create'
 
   post '/nayami_comments', to: 'nayami_comments#create'
+
+  post '/profile_images', to: 'profile_images#create'
 end
