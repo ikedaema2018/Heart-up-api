@@ -13,5 +13,5 @@ Rails.application.routes.draw do
 
   post '/nayami_comments', to: 'nayami_comments#create'
 
-  post '/profile_images', to: 'profile_images#create'
+  post '/profile_images', to: 'profile_images#update'
 end

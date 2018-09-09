@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180909021855) do
+ActiveRecord::Schema.define(version: 20180902041803) do
 
   create_table "locate_infos", force: :cascade do |t|
     t.string "nayami"
@@ -30,13 +30,6 @@ ActiveRecord::Schema.define(version: 20180909021855) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "profile_images", force: :cascade do |t|
-    t.string "image_path"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "user_name"
     t.string "email"
@@ -44,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180909021855) do
     t.integer "age"
     t.string "gender"
     t.string "self_introduce"
+    t.string "profile_image"
     t.string "auth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

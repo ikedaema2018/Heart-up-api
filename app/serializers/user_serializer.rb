@@ -5,7 +5,9 @@ class UserSerializer < ActiveModel::Serializer
              :password_digest,
              :age,
              :gender,
-             :self_introduce
+             :self_introduce,
+             :auth_token,
+             :profile_image
 
   has_many :nayami_comments
   has_many :locate_infos

@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.integer :age
       t.string :gender
       t.string :self_introduce
+      t.string :profile_image
       t.string :auth_token
       t.timestamps
     end
