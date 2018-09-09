@@ -1,8 +1,7 @@
 class LocateInfosController < ApplicationController
 
   def index
-    @locate_infos = LocateInfo.all
-    p @locate_infos
+    @locate_infos = LocateInfo.where(:life_flag => false)
     render json: @locate_infos
   end
 

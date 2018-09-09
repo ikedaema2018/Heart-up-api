@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20180902041803) do
     t.string "keido"
     t.integer "user_id"
     t.string "color"
+    t.boolean "life_flag", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

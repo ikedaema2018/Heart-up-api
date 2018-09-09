@@ -6,6 +6,7 @@ class CreateLocateInfos < ActiveRecord::Migration[5.1]
       t.string :keido
       t.integer :user_id
       t.string :color
+      t.boolean :life_flag, null: false, default:false
       t.timestamps
     end
   end
