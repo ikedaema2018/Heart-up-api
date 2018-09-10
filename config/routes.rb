@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'shabon_alerts/show'
+  get 'shabon_alerts/show', to: 'shabon_alerts#show'
+  get 'shabon_alerts/:id', to: 'shabon_alerts#fix_alert'
 
   resources :users
   post '/users/intro_update', to: 'users#intro_update'
