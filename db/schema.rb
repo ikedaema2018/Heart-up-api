@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180902041803) do
+ActiveRecord::Schema.define(version: 20180910060222) do
 
   create_table "locate_infos", force: :cascade do |t|
     t.string "nayami"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20180902041803) do
     t.string "nayami_comment"
     t.integer "locate_info_id"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shabon_alerts", force: :cascade do |t|
+    t.integer "locate_info_id"
+    t.boolean "splash"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

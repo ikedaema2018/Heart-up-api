@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  locate_info_id: 1
+  splash: false
+
+two:
+  locate_info_id: 1
+  splash: false

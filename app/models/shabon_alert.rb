@@ -1,0 +1,2 @@
+class ShabonAlert < ApplicationRecord
+end

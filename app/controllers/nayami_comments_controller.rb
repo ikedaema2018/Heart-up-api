@@ -8,7 +8,9 @@ class NayamiCommentsController < ApplicationController
       if NayamiComment.where(locate_info_id: @nayami_comment[:locate_info_id]).count >= 9
         @locate_info = LocateInfo.find(@nayami_comment[:locate_info_id])
         @locate_info.update(life_flag: true)
-        p "\(@locate_info[:id])番の悩みが解決しました！"
+        @shabon_alert = ShabonAlert.new(locate_info_id: @locate_info[:id], splash: false)
+        # エラー処理はしなくていいの？
+        @shabon_alert.save
       end
       render json: @nayami_comment
     end
