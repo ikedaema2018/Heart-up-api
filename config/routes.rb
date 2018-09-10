@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'shabon_alerts/show'
+
   resources :users
   post '/users/intro_update', to: 'users#intro_update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
