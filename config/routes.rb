@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :users
+  post '/users/intro_update', to: 'users#intro_update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/locate_infos', to: 'locate_infos#index'
   post '/locate_infos', to: 'locate_infos#create'
