@@ -6,9 +6,7 @@ class LocateInfosController < ApplicationController
   end
 
   def create
-
     @locate_info = LocateInfo.new(create_params)
-
     # エラー処理
     unless @locate_info.save # もし、memoが保存できなかったら
       render json:@error_message = [@locate_info.errors.full_messages].compact # エラーが入ってるインスタンス変数を定義
