@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post 'user_locates/update', to: 'user_locates#update'
+
   get 'shabon_alerts/show', to: 'shabon_alerts#show'
   get 'shabon_alerts/:id', to: 'shabon_alerts#fix_alert'
 

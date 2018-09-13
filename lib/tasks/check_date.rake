@@ -3,6 +3,5 @@ namespace :check_date do
 # タスクの名前、「:environment」がないとDBやモデルにアクセスできないので、使う場合は付ける
   task :check_state => :environment do
     p "test"
-# articlesテーブルで[公開日が現在時刻以前かつステータス「公開待ち」]のものを全て「公開」に変更
   end
 end

@@ -6,8 +6,6 @@ class ProfileImagesController < ApplicationController
 
     @profile_image = User.find(@user.id)
 
-    @profile_image = User.find(@user.id)
-
     begin
       if !@profile_image[:profile_image].nil?
         delete_path = Rails.root.join('public/profile_image', @profile_image[:profile_image])
