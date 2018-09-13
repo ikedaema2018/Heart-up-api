@@ -1,0 +1,2 @@
+class TargetUser < ApplicationRecord
+end
