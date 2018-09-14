@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/locate_infos', to: 'locate_infos#index'
   post '/locate_infos', to: 'locate_infos#create'
   get '/locate_infos/find_my_shabon', to: 'locate_infos#find_my_shabon'
+  get '/locate_infos/distance', to: 'locate_infos#distance'
   get '/locate_infos/:id', to: 'locate_infos#show'
  
   
@@ -20,4 +21,5 @@ Rails.application.routes.draw do
   post '/nayami_comments', to: 'nayami_comments#create'
 
   post '/profile_images', to: 'profile_images#update'
+
 end
