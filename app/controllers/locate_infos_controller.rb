@@ -33,11 +33,6 @@ class LocateInfosController < ApplicationController
      render json: @locate_infos
   end
 
-  def distance
-    p close_of_distance(37.3307, -122.0299)
-    render json: @locate_infos
-  end
-
   
 
   private
