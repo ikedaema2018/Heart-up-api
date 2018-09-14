@@ -12,6 +12,9 @@ class LocateInfosController < ApplicationController
     unless @locate_info.save # もし、memoが保存できなかったら
       render json:@error_message = [@locate_info.errors.full_messages].compact # エラーが入ってるインスタンス変数を定義
     else
+      #user_locatesから一番近いユーザーを検索してtarget_userに登録
+      
+
       render json: @locate_info
     end
   end
@@ -35,6 +38,7 @@ class LocateInfosController < ApplicationController
     a.id
   , a.ido
   , a.keido
+  , a.user_id
   , ( 
     6371 * ACOS( 
       COS(RADIANS(37.3248)) * COS(RADIANS(a.ido)) * COS(RADIANS(a.keido) - RADIANS(-122.0197))
@@ -49,11 +53,13 @@ from
 # ActiveRecord::Base.connection.select_all(sql).to_hash     
     
     test2 = ActiveRecord::Base.connection.select_all(sql).to_hash 
-    p test2
+    p test2[0]["user_id"]
   end
 
   private
   def create_params
     params.require(:locate).permit(:ido, :keido, :nayami, :color).merge(user_id: @user.id)
   end
+
+
 end
