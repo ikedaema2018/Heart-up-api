@@ -3,5 +3,5 @@ class TargetUserSerializer < ActiveModel::Serializer
              :locate_info_id,
              :user_id, 
              :life_flag
-  belongs_to :locate_info
+  has_one :locate_info
 end
