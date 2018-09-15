@@ -1,0 +1,2 @@
+class CloserAlertsController < ApplicationController
+end

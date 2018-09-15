@@ -1,0 +1,2 @@
+class CloserAlert < ApplicationRecord
+end
