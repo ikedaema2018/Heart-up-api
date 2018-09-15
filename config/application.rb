@@ -34,6 +34,7 @@ module HeartUpApi
 
 # 特にここ！！Rails5から productionでも呼び出せるように設定しないといけない
 config.enable_dependency_loading = true 
+
   end
 end
 
