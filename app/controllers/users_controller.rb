@@ -16,13 +16,14 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
+    @user = User.create(user_params)
  
     @user["age"] = @user["age"].to_i
     if @user.save
       render json: @user, status: :created, location: @user
     else
-      render json: @user.errors, status: :unprocessable_entity
+      error_messages = @user.errors.keys.map { |key| [key, @user.errors.full_messages_for(key)]}.to_h
+      render json: {message: error_messages}, status: :unprocessable_entity
     end
   end
 

@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   post '/nayami_comments', to: 'nayami_comments#create'
   post '/profile_images', to: 'profile_images#update'
 
+  get '/closer_alerts/:id', to: 'closer_alerts#fix_closer'
+  get '/closer_alerts', to: 'closer_alerts#user_alert'
+
 end
