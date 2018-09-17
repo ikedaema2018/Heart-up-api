@@ -1,5 +1,6 @@
 module UserStalke
   def user_stalke
+    p Time.now
     locate_infos = LocateInfo.all
     locate_infos.each do |f|
       if f.life_flag == false
@@ -14,6 +15,7 @@ module UserStalke
       p "________________"
       p f.ido
       p @user_locate.ido
+      
 
       # binding.pry
       if (f.ido.abs - @user_locate.ido.abs).abs <= 0.0006 && (f.keido.abs - @user_locate.keido.abs).abs <= 0.0006

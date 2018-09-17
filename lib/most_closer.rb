@@ -43,10 +43,8 @@ module MostCloser
         
         test2 = ActiveRecord::Base.connection.select_all(sql).to_hash 
         if test2[0]["user_id"] != locate_user
-          print("----------success-------------------------------")
           return test2[0]["user_id"]
         else
-          print("----------false-------------------------------")
           return test2[1]["user_id"]
         end
   end
@@ -77,12 +75,9 @@ module MostCloser
         # return sql
         
         test2 = ActiveRecord::Base.connection.select_all(sql).to_hash 
-        if test2[0]["user_id"] != locate_user
-          print("----------success-------------------------------")
-          return test2[0]["user_id"]
+        if test2[1]["user_id"] != locate_user
+          return test2[1]["user_id"]
         else
-          print("----------false-------------------------------")
-          print(locate_user)
           return test2[1]["user_id"]
         end
   end
