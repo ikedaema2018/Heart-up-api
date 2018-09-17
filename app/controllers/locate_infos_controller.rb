@@ -4,16 +4,17 @@ class LocateInfosController < ApplicationController
 
   def index
     @locate_infos = LocateInfo.where(:life_flag => false)
-    today = DateTime.now()
-    one_hour_ago = today - Rational(1, 24)
-    @users = UserLocate.where("updated_at > ?", one_hour_ago)
-    p "--------------------------------------------------------------------------------------------------"
-    p @users
-    @mass_info = {}
-    @mass_info["locate_infos"] = @locate_infos
-    @mass_info["users"] = @users
+    # today = DateTime.now()
+    # one_hour_ago = today - Rational(1, 24)
+    # @users = UserLocate.where("updated_at > ?", one_hour_ago)
+    # p "--------------------------------------------------------------------------------------------------"
+    # p @users
+    # @mass_info = {}
+    # @mass_info["locate_infos"] = @locate_infos
+    # @mass_info["users"] = @users
     # p @mass_info
-    render json: @mass_info
+    p @locate_infos
+    render json: @locate_infos
   end
 
   def create
