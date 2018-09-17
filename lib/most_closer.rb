@@ -17,8 +17,7 @@ module MostCloser
   end
 
   #これで引数の緯度と経度に一番近いuser_idを取得
-  def close_of_distance(latitude, longitude)
-    p "test"
+  def close_of_distance(latitude, longitude, locate_user)
     # SQLを作成
     sql1 = <<-"EOS"
     select
@@ -33,7 +32,7 @@ module MostCloser
         sql3 = <<-"EOS"
       as DISTANCE
     from
-      user_locates a ORDER BY DISTANCE LIMIT 1;
+      user_locates a ORDER BY DISTANCE LIMIT 3;
         EOS
 
     # sqlを実行し、取得結果をhashに変換
@@ -43,12 +42,17 @@ module MostCloser
         # return sql
         
         test2 = ActiveRecord::Base.connection.select_all(sql).to_hash 
-        return test2[0]["user_id"]
+        if test2[0]["user_id"] != locate_user
+          print("----------success-------------------------------")
+          return test2[0]["user_id"]
+        else
+          print("----------false-------------------------------")
+          return test2[1]["user_id"]
+        end
   end
 
   #2番目に近いユーザーを検索
-  def weak_close_of_distance(latitude, longitude)
-    p "test"
+  def weak_close_of_distance(latitude, longitude, locate_user)
     # SQLを作成
     sql1 = <<-"EOS"
     select
@@ -63,7 +67,7 @@ module MostCloser
         sql3 = <<-"EOS"
       as DISTANCE
     from
-      user_locates a ORDER BY DISTANCE LIMIT 2;
+      user_locates a ORDER BY DISTANCE LIMIT 3;
         EOS
 
     # sqlを実行し、取得結果をhashに変換
@@ -73,7 +77,14 @@ module MostCloser
         # return sql
         
         test2 = ActiveRecord::Base.connection.select_all(sql).to_hash 
-        return test2[1]["user_id"]
+        if test2[0]["user_id"] != locate_user
+          print("----------success-------------------------------")
+          return test2[0]["user_id"]
+        else
+          print("----------false-------------------------------")
+          print(locate_user)
+          return test2[1]["user_id"]
+        end
   end
 
   module_function :close_of_distance, :weak_close_of_distance, :set_up

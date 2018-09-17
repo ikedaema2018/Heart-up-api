@@ -24,7 +24,7 @@ module UserStalke
         closer_alert.locate_info_id = f.id
         closer_alert.save
         #target_userを変える
-        @user_id = MostCloser.weak_close_of_distance(f.ido, f.keido)
+        @user_id = MostCloser.weak_close_of_distance(f.ido, f.keido, f.user_id)
         p f.target_user
         f.target_user.user_id = @user_id
         p f.target_user

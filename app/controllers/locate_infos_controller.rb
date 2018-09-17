@@ -27,7 +27,7 @@ class LocateInfosController < ApplicationController
       render json:@error_message = [@locate_info.errors.full_messages].compact # エラーが入ってるインスタンス変数を定義
     else
       #user_locatesから一番近いユーザーを検索してtarget_userに登録
-      user_id = MostCloser.close_of_distance(@locate_info[:ido], @locate_info[:keido])
+      user_id = MostCloser.close_of_distance(@locate_info[:ido], @locate_info[:keido], @locate_info[:user_id])
       target_user = TargetUser.new(user_id: user_id, locate_info_id: @locate_info[:id])
       target_user.save
 
