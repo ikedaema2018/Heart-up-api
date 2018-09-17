@@ -1,18 +1,18 @@
 class UsersController < ApplicationController
   skip_before_action :login_check, only: [:create]
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:update]
 
   # GET /users
-  def index
-    @users = User.all
-    render json: @users
-  end
+  # def index
+  #   @users = User.all
+  #   render json: @users
+  # end
 
   # GET /users/1
-  def show
-    @user = User.find(params[:id])
-    render json: @user
-  end
+  # def show
+  #   @user = User.find(params[:id])
+  #   render json: @user
+  # end
 
   # POST /users
   def create
@@ -39,6 +39,13 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     @user.destroy
+  end
+
+  def one_hour_ago_user
+    today = DateTime.now()
+    one_hour_ago = today - Rational(1, 24)
+    @users = UserLocate.where("updated_at > ?", one_hour_ago)
+    render json: @users
   end
 
   private

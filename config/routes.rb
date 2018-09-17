@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get 'shabon_alerts/show', to: 'shabon_alerts#show'
   get 'shabon_alerts/:id', to: 'shabon_alerts#fix_alert'
 
-  resources :users
   post '/users/intro_update', to: 'users#intro_update'
+  get '/users/one_hour_ago_user', to: 'users#one_hour_ago_user'
+  resources :users
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/locate_infos', to: 'locate_infos#index'
   post '/locate_infos', to: 'locate_infos#create'
