@@ -38,7 +38,7 @@ class LocateInfosController < ApplicationController
   def show
     @id = params[:id]
     @locate_info = LocateInfo.find(@id)
-    render json: @locate_info
+    render json: @locate_info, include: { nayami_comments: [:user] }
   end
 
   # ユーザーIDに一致したシャボン玉を返す

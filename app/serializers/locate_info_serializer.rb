@@ -10,4 +10,10 @@ class LocateInfoSerializer < ActiveModel::Serializer
   has_many :nayami_comments
   has_many :shabon_alerts
   has_one :target_user
+  class NayamiCommentSerializer < ActiveModel::Serializer
+    attributes :id,
+             :nayami_comment,
+             :user_id
+  belongs_to :user
+  end
 end

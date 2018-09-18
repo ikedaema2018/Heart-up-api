@@ -6,6 +6,7 @@ module UserStalke
       if f.life_flag == true
         next
       end
+      p f.target_user
       @user_id = f.target_user.user_id
       @user_locate = UserLocate.find_by(user_id: @user_id)
        p "________________"
