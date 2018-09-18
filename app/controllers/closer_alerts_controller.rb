@@ -7,7 +7,7 @@ class CloserAlertsController < ApplicationController
   def fix_closer
     @id = params[:id]
     @closer_alert = CloserAlert.find(@id)
-    @closer_alert.update(close_flag: true)
-    render json: @closer_alert
+    @closer_alert.destroy
+    head 200
   end
 end

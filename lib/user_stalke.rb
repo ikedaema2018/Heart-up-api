@@ -3,7 +3,7 @@ module UserStalke
     p Time.now
     locate_infos = LocateInfo.all
     locate_infos.each do |f|
-      if f.life_flag == false
+      if f.life_flag == true
         next
       end
       @user_id = f.target_user.user_id
