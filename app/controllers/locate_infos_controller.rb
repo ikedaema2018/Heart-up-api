@@ -41,14 +41,15 @@ class LocateInfosController < ApplicationController
     render json: @locate_info
   end
 
-  # ユーザーIDに一致したシャボン玉を返す
+  # ユーザーIDに一致したコメントを返す
   def find_my_shabon
      @locate_infos = LocateInfo.where(user_id: @user.id)
      render json: @locate_infos
   end
 
-  def distance
+  
 
+  def distance
     UserStalke.user_stalke
     # render json: locate_infos[0]
   end

@@ -17,6 +17,11 @@ class NayamiCommentsController < ApplicationController
     end
   end
 
+  def my_post
+    @nayami_comments = NayamiComment.where(user_id: @user.id).order(id: "DESC")
+    render json: @nayami_comments, include: { locate_info: [:user] }
+  end
+
   private
 
   def create_params
