@@ -22,6 +22,13 @@ class NayamiCommentsController < ApplicationController
     render json: @nayami_comments, include: { locate_info: [:user] }
   end
 
+
+  def my_shabon_nayami_find
+    @nayami_comments = NayamiComment.where(yonda_flag: false).joins(:locate_info).merge(LocateInfo.where(user_id: @user.id))
+    render json: @nayami_comments
+  end
+
+
   private
 
   def create_params

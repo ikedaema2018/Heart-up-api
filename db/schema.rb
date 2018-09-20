@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20180915062302) do
     t.string "nayami_comment"
     t.integer "locate_info_id"
     t.integer "user_id"
+    t.boolean "yonda_flag", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

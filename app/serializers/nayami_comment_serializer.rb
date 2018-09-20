@@ -10,7 +10,8 @@ class NayamiCommentSerializer < ActiveModel::Serializer
     attributes :id,
              :nayami,
              :user_id,
-             :color
+             :color,
+             :life_flag
     belongs_to :user
   end
 end

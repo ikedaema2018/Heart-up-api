@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post '/admin', to: 'admin_users#create'
 
   get '/nayami_comments/my_post', to: 'nayami_comments#my_post'
+  get '/nayami_comments/my_shabon_nayami_find', to: 'nayami_comments#my_shabon_nayami_find'
   post '/nayami_comments', to: 'nayami_comments#create'
   post '/profile_images', to: 'profile_images#update'
 

@@ -4,6 +4,7 @@ class CreateNayamiComments < ActiveRecord::Migration[5.1]
       t.string :nayami_comment
       t.integer :locate_info_id
       t.integer :user_id
+      t.boolean :yonda_flag, null: false, default:false
       t.timestamps
     end
   end
