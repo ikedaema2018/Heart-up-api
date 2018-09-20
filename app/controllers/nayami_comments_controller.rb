@@ -28,6 +28,11 @@ class NayamiCommentsController < ApplicationController
     render json: @nayami_comments
   end
 
+  def fix_yonda_flag
+    @id = params[:id]
+    @nayami_comments = NayamiComment.where(locate_info_id: @id).update_all(yonda_flag: true)
+    render @nayami_comments
+  end
 
   private
 

@@ -15,14 +15,14 @@ Rails.application.routes.draw do
   get '/locate_infos/distance', to: 'locate_infos#distance'
   get '/locate_infos/find_my_shabon', to: 'locate_infos#find_my_shabon'
   get '/locate_infos/:id', to: 'locate_infos#show'
- 
-  
 
   post '/admin', to: 'admin_users#create'
 
   get '/nayami_comments/my_post', to: 'nayami_comments#my_post'
   get '/nayami_comments/my_shabon_nayami_find', to: 'nayami_comments#my_shabon_nayami_find'
+  get '/nayami_comments/fix_yonda_flag/:id', to: 'nayami_comments#fix_yonda_flag'
   post '/nayami_comments', to: 'nayami_comments#create'
+
   post '/profile_images', to: 'profile_images#update'
 
   get '/closer_alerts/:id', to: 'closer_alerts#fix_closer'
