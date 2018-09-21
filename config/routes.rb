@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post '/locate_infos', to: 'locate_infos#create'
   get '/locate_infos/distance', to: 'locate_infos#distance'
   get '/locate_infos/find_my_shabon', to: 'locate_infos#find_my_shabon'
+  get '/locate_infos/push_test', to: 'locate_infos#push_test'
   get '/locate_infos/:id', to: 'locate_infos#show'
 
   post '/admin', to: 'admin_users#create'
@@ -27,5 +28,7 @@ Rails.application.routes.draw do
 
   get '/closer_alerts/:id', to: 'closer_alerts#fix_closer'
   get '/closer_alerts', to: 'closer_alerts#user_alert'
+
+  
 
 end

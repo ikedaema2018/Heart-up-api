@@ -16,6 +16,7 @@ gem 'puma', '~> 3.7'
 gem 'active_model_serializers'
 
 gem 'whenever', require: false
+gem "fcm"
 
 
 
