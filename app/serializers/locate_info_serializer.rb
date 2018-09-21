@@ -13,7 +13,8 @@ class LocateInfoSerializer < ActiveModel::Serializer
   class NayamiCommentSerializer < ActiveModel::Serializer
     attributes :id,
              :nayami_comment,
-             :user_id
+             :user_id,
+             :yonda_flag
   belongs_to :user
   end
 end
