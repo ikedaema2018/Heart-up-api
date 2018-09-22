@@ -15,7 +15,7 @@ class NayamiCommentsController < ApplicationController
 
         #splash_yonda_checkに加える
         @splash_yonda_check = SplashYondaCheck.new(locate_info_id: @locate_info[:id])
-        @s@lash_yonda_check.save
+        @splash_yonda_check.save
 
         #push通知
         @push_info = PushInfo.find_by(user_id: @locate_info[:user_id])
