@@ -1,0 +1,2 @@
+class SplashYondaCheck < ApplicationRecord
+end
