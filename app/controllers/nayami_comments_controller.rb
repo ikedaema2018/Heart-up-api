@@ -12,6 +12,23 @@ class NayamiCommentsController < ApplicationController
         @shabon_alert = ShabonAlert.new(locate_info_id: @locate_info[:id], splash: false)
         # エラー処理はしなくていいの？
         @shabon_alert.save
+
+        #push通知
+        @push_info = PushInfo.find_by(user_id: @locate_info[:user_id])
+        if !@push_info.nil?
+          require 'fcm'
+
+        fcm = FCM.new("AAAA-TM2pZc:APA91bFLB_VLAjK8OjNqMRauAM8tLQng6DT6JHss6s2am9aGOCcSttXyyd8hxoGQmAXgm1eONZ4jqttjHNzifGTQOt-Oy4mQaOfjsBprZf31qn8hJzr8c7d7PyJzLQtxgZ09X2AjKnFi")
+
+        token = @push_info[:fcm_token]
+        opts = {
+          "notification" => {
+            "body" => "あなたのシャボン玉が破裂しました！"
+          }
+        }
+        ret = fcm.send_with_notification_key(token, opts)
+        p ret
+        end
       end
       render json: @nayami_comment
     end

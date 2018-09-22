@@ -54,19 +54,21 @@ class LocateInfosController < ApplicationController
 
   def push_test
     # coding: utf-8
-require 'fcm'
+    require 'fcm'
 
-fcm = FCM.new("AAAA-TM2pZc:APA91bFLB_VLAjK8OjNqMRauAM8tLQng6DT6JHss6s2am9aGOCcSttXyyd8hxoGQmAXgm1eONZ4jqttjHNzifGTQOt-Oy4mQaOfjsBprZf31qn8hJzr8c7d7PyJzLQtxgZ09X2AjKnFi")
+    fcm = FCM.new("AAAA-TM2pZc:APA91bFLB_VLAjK8OjNqMRauAM8tLQng6DT6JHss6s2am9aGOCcSttXyyd8hxoGQmAXgm1eONZ4jqttjHNzifGTQOt-Oy4mQaOfjsBprZf31qn8hJzr8c7d7PyJzLQtxgZ09X2AjKnFi")
 
-token = "fvc6iqZxTHo:APA91bEHXOmCZWHpJYPrnbXFdMZeBpmSfn5d4mcH60LpIQTpRHekdG7gxO9uI8gxUGjKJinUWGFMy9Q8o00bIjJj1NgSklQcZKp7OJHI122t378u-KEkj-yUj7hkPEFK3ImeF0wXVOCn"
-opts = {
-  "notification" => {
-    "body" => "新着記事があります！"
-  }
-}
-ret = fcm.send_with_notification_key(token, opts)
-p ret
+    token = "fvc6iqZxTHo:APA91bEHXOmCZWHpJYPrnbXFdMZeBpmSfn5d4mcH60LpIQTpRHekdG7gxO9uI8gxUGjKJinUWGFMy9Q8o00bIjJj1NgSklQcZKp7OJHI122t378u-KEkj-yUj7hkPEFK3ImeF0wXVOCn"
+    opts = {
+      "notification" => {
+        "body" => "新着記事があります！"
+      }
+    }
+    ret = fcm.send_with_notification_key(token, opts)
+    p ret
   end
+
+  
   
 
   private
