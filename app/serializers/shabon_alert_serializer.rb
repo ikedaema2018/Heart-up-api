@@ -5,7 +5,7 @@ class ShabonAlertSerializer < ActiveModel::Serializer
   # has_and_belongs_to_many :users
   belongs_to :locate_info
   
-  class LocateInfo < ActiveModel::Serializer
+  class LocateInfoSerializer < ActiveModel::Serializer
     attributes :id,
              :nayami,
              :ido,
