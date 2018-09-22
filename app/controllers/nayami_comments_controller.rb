@@ -13,12 +13,9 @@ class NayamiCommentsController < ApplicationController
         # エラー処理はしなくていいの？
         @shabon_alert.save
 
-
-        p "----------------aaaaaaaaaa-------------------------"
         #push通知
         @push_info = PushInfo.find_by(user_id: @locate_info[:user_id])
         if !@push_info.nil?
-          p "----------------bbbbbbbbbbbbbbb-------------------------"
           require 'fcm'
 
         fcm = FCM.new("AAAA-TM2pZc:APA91bFLB_VLAjK8OjNqMRauAM8tLQng6DT6JHss6s2am9aGOCcSttXyyd8hxoGQmAXgm1eONZ4jqttjHNzifGTQOt-Oy4mQaOfjsBprZf31qn8hJzr8c7d7PyJzLQtxgZ09X2AjKnFi")
