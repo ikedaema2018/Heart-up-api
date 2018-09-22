@@ -30,13 +30,13 @@ class LocateInfosController < ApplicationController
       p @locate_info[:ido]
       p @locate_info[:keido]
       p @locate_info[:user_id]
-      user_id = MostCloser.close_of_distance(@locate_info[:ido], @locate_info[:keido], @locate_info[:user_id])
+      @user_id = MostCloser.close_of_distance(@locate_info[:ido], @locate_info[:keido], @locate_info[:user_id])
       p "---------------------------------------"
-      p user_id
-      target_user = TargetUser.new(user_id: user_id, locate_info_id: @locate_info[:id])
+      p @user_id
+      @target_user = TargetUser.new(user_id: @user_id, locate_info_id: @locate_info[:id])
       p "----------aaaaa---------------------------"
-      p target_user
-      target_user.save
+      p @target_user
+      @target_user.save
 
       render json: @locate_info
     end
