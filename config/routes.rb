@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/locate_infos/distance', to: 'locate_infos#distance'
   get '/locate_infos/find_my_shabon', to: 'locate_infos#find_my_shabon'
   get '/locate_infos/push_test', to: 'locate_infos#push_test'
+  get 'locate_infos/my_shabon/:id', to: 'locate_infos#get_my_shabon_detail'
   get '/locate_infos/:id', to: 'locate_infos#show'
 
   post '/admin', to: 'admin_users#create'
