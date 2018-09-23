@@ -45,6 +45,7 @@ class LocateInfosController < ApplicationController
   def show
     @id = params[:id]
     @locate_info = LocateInfo.find(@id)
+    NayamiComment.where(locate_info_id: @locate_info[:id]).update_all(yonda_flag: true)
     render json: @locate_info
   end
 
