@@ -58,8 +58,6 @@ class LocateInfosController < ApplicationController
   def get_my_shabon_detail
     @id = params[:id]
     @locate_info = LocateInfo.find(@id)
-    p "------------------------------"
-    p @locate_info
 
     if @locate_info[:life_flag] == true
       #取得したlocate_infoのsplash_yonda_checkがfalseだった時、そこのnayami_commentsを全部trueにしてsplash_yonda_flagもtrueに
@@ -67,6 +65,9 @@ class LocateInfosController < ApplicationController
 
       if @splash_yonda_check[:yonda_flag] == false
         @splash_yonda_check.update(yonda_flag: true)
+        p "-------------------------------------------"
+        @splash_yonda_check
+        p "-------------------------------------------"
         NayamiComment.where(locate_info_id: @locate_info[:id]).update_all(yonda_flag: true)
       end
     end
