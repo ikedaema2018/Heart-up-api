@@ -52,7 +52,7 @@ module MostCloser
   end
 
   #2番目に近いユーザーを検索
-  def weak_close_of_distance(latitude, longitude, locate_user)
+  def weak_close_of_distance(latitude, longitude, locate_user, receive_user)
     # SQLを作成
     sql1 = <<-"EOS"
     select
@@ -76,12 +76,12 @@ module MostCloser
     sql = sql1 + sql2 + sql3
         # return sql
         
-        test2 = ActiveRecord::Base.connection.select_all(sql).to_hash 
+        test2 = ActiveRecord::Base.connection.select_all(sql).to_hash
         p "-----------------------------------------"
         p test2
-        if test2[2]["user_id"] != locate_user
+        if test2[2]["user_id"] != locate_user && test2[2]["user_id"] != receive_user
           return test2[2]["user_id"]
-        elsif test2[1]["user_id"] != locate_user
+        elsif test2[1]["user_id"] != locate_user && test2[1]["user_id"] != receive_user
           return test2[1]["user_id"]
         else
           return test2[0]["user_id"]
