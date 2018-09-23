@@ -1,7 +1,7 @@
 class CloserAlertsController < ApplicationController
   def user_alert
     @alert = CloserAlert.where(user_id: @user.id).where(close_flag: false)
-    render json: @alert
+    render json: @alert, include: { locate_info: [:user] }
   end
 
   def fix_closer
