@@ -61,7 +61,7 @@ class LocateInfosController < ApplicationController
     p "------------------------------"
     p @locate_info
 
-    if @locate_info[:life_flag] == false
+    if @locate_info[:life_flag] == true
       #取得したlocate_infoのsplash_yonda_checkがfalseだった時、そこのnayami_commentsを全部trueにしてsplash_yonda_flagもtrueに
       @splash_yonda_check = SplashYondaCheck.find_by(locate_info_id: @locate_info[:id])
 
