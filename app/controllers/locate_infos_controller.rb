@@ -45,7 +45,17 @@ class LocateInfosController < ApplicationController
   def show
     @id = params[:id]
     @locate_info = LocateInfo.find(@id)
-    NayamiComment.where(locate_info_id: @locate_info[:id]).update_all(yonda_flag: true)
+    if @locate_info[:user_id] == @user.id
+      NayamiComment.where(locate_info_id: @locate_info[:id]).update_all(yonda_flag: true)
+¥      if @locate_info[:life_flag] == true
+        #取得したlocate_infoのsplash_yonda_checkがfalseだった時、そこのnayami_commentsを全部trueにしてsplash_yonda_flagもtrueに
+        @splash_yonda_check = SplashYondaCheck.find_by(locate_info_id: @locate_info[:id])
+  
+        if @splash_yonda_check[:yonda_flag] == false
+          @splash_yonda_check.update(yonda_flag: true)
+        end
+      end
+    end
     render json: @locate_info
   end
 
@@ -58,19 +68,6 @@ class LocateInfosController < ApplicationController
   def get_my_shabon_detail
     @id = params[:id]
     @locate_info = LocateInfo.find(@id)
-
-    if @locate_info[:life_flag] == true
-      #取得したlocate_infoのsplash_yonda_checkがfalseだった時、そこのnayami_commentsを全部trueにしてsplash_yonda_flagもtrueに
-      @splash_yonda_check = SplashYondaCheck.find_by(locate_info_id: @locate_info[:id])
-
-      if @splash_yonda_check[:yonda_flag] == false
-        @splash_yonda_check.update(yonda_flag: true)
-        p "-------------------------------------------"
-        @splash_yonda_check
-        p "-------------------------------------------"
-        NayamiComment.where(locate_info_id: @locate_info[:id]).update_all(yonda_flag: true)
-      end
-    end
     render json: @locate_info
   end
 
