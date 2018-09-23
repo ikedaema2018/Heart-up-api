@@ -77,8 +77,7 @@ module MostCloser
         # return sql
         
         test2 = ActiveRecord::Base.connection.select_all(sql).to_hash
-        p "-----------------------------------------"
-        p test2
+        
         if test2[2]["user_id"] != locate_user && test2[2]["user_id"] != receive_user
           return test2[2]["user_id"]
         elsif test2[1]["user_id"] != locate_user && test2[1]["user_id"] != receive_user

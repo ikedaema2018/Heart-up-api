@@ -1,3 +1,3 @@
 class SplashYondaCheck < ApplicationRecord
-  belongs_to :locate_info
+  has_one :locate_info
 end

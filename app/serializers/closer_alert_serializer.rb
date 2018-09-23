@@ -7,7 +7,7 @@ class CloserAlertSerializer < ActiveModel::Serializer
   belongs_to :locate_info
   class LocateInfoSerializer < ActiveModel::Serializer
     attributes :id,
-             :user_id
-  belongs_to :user
+               :user_id
+    belongs_to :user
   end
 end
