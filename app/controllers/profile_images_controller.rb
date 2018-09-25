@@ -36,7 +36,10 @@ class ProfileImagesController < ApplicationController
     # end
   def update
     @profile_image = User.find(@user.id)
-    AWS.config(access_key_id: 'AKIAIL6MGOAT5XBVA2NQ', secret_access_key: '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', region: 'ap-northeast-1')
+    Aws.config.update({
+      region: 'ap-northeast-1',
+      credentials: Aws::Credentials.new(ENV['AKIAIL6MGOAT5XBVA2NQ'], ENV['UKLFRlps3PoZ0TxIzwK1XYBZucGMBuorxxppbE5M'])
+    })
     s3 = AWS::S3.new
     bucket = s3.buckets['heart-up']
     uploaded_file = fileupload_params[:file]
