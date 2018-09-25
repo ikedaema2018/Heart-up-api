@@ -39,8 +39,8 @@ class ProfileImagesController < ApplicationController
     
     client = Aws::S3::Client.new(
       region:            'ap-northeast-1',
-      access_key_id:     'AKIAIL6MGOAT5XBVA2NQ',
-      secret_access_key: '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'
+      access_key_id:     'AKIAIXPLMWOWDPNOHLTQ',
+      secret_access_key: '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'
     )
     s3 = Aws::S3::Resource.new(client: client)
 
