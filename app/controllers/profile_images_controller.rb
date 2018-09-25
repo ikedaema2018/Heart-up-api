@@ -35,6 +35,7 @@ class ProfileImagesController < ApplicationController
     #   head 500
     # end
   def update
+    require 'aws-sdk'
     @profile_image = User.find(@user.id)
     Aws.config.update({
       region: 'ap-northeast-1',
