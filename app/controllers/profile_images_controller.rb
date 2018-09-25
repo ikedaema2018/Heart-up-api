@@ -35,19 +35,21 @@ class ProfileImagesController < ApplicationController
     #   head 500
     # end
   def update
-    require 'aws-sdk'
     @profile_image = User.find(@user.id)
-    Aws.config.update({
-      region: 'ap-northeast-1',
-      credentials: Aws::Credentials.new(ENV['AKIAIL6MGOAT5XBVA2NQ'], ENV['UKLFRlps3PoZ0TxIzwK1XYBZucGMBuorxxppbE5M'])
-    })
-    s3 = AWS::S3.new
-    bucket = s3.buckets['heart-up']
+    
+    client = Aws::S3::Client.new(
+      region:            'ap-northeast-1',
+      access_key_id:     'AKIAIL6MGOAT5XBVA2NQ',
+      secret_access_key: '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'
+    )
+    s3 = Aws::S3::Resource.new(client: client)
+
+    bucket = s3.bucket['heart-up']
     uploaded_file = fileupload_params[:file]
         
     file_name = uploaded_file.original_filename
     file_full_path="images/"+file_name
-    object = bucket.objects[file_full_path]
+    object = bucket.object[file_full_path]
     object.write(file ,:acl => :public_read)
 
 

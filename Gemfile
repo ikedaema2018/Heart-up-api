@@ -17,7 +17,7 @@ gem 'active_model_serializers'
 
 gem 'whenever', require: false
 gem "fcm"
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '~> 3'
 
 
 
