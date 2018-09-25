@@ -39,8 +39,8 @@ class ProfileImagesController < ApplicationController
     
     client = Aws::S3::Client.new(
       region:            'ap-northeast-1',
-      access_key_id:     aws_access,
-      secret_access_key: aws_secret
+      access_key_id:     ENV["aws_access"],
+      secret_access_key: ENV["aws_secret"]
     )
     s3 = Aws::S3::Resource.new(client: client)
 
