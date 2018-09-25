@@ -47,7 +47,7 @@ class ProfileImagesController < ApplicationController
     object.write(file ,:acl => :public_read)
 
 
-    @profile_image.profile_image="http://s3-ap-northeast-1.amazonaws.com/heart-up/images/#{file_name}"
+    @profile_image[:profile_image] = "http://s3-ap-northeast-1.amazonaws.com/heart-up/images/#{file_name}"
 
 
     if @profile_image.save
