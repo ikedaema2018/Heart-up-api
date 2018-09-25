@@ -44,7 +44,7 @@ class ProfileImagesController < ApplicationController
     )
     s3 = Aws::S3::Resource.new(client: client)
 
-    bucket = s3.bucket('heart-up')
+    bucket = s3.bucket('heartup')
     uploaded_file = fileupload_params[:file]
         
     file_name = uploaded_file.original_filename
@@ -54,7 +54,7 @@ class ProfileImagesController < ApplicationController
     object.upload_file(uploaded_file.tempfile, :acl => :public_read)
 
 
-    @profile_image[:profile_image] = "http://s3-ap-northeast-1.amazonaws.com/heart-up/images/#{file_name}"
+    @profile_image[:profile_image] = "http://s3-ap-northeast-1.amazonaws.com/heartup/images/#{file_name}"
 
 
     if @profile_image.save
