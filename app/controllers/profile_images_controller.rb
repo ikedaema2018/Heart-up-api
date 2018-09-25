@@ -35,26 +35,26 @@ class ProfileImagesController < ApplicationController
     #   head 500
     # end
   def update
-    @profile_image = User.find(@user.id)
-    AWS.config(access_key_id: 'AKIAIL6MGOAT5XBVA2NQ', secret_access_key: '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', region: 'ap-northeast-1')
-    s3 = AWS::S3.new
-    bucket = s3.buckets['heart-up']
-    uploaded_file = fileupload_params[:file]
+    # @profile_image = User.find(@user.id)
+    # AWS.config(access_key_id: 'AKIAIL6MGOAT5XBVA2NQ', secret_access_key: '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', region: 'ap-northeast-1')
+    # s3 = AWS::S3.new
+    # bucket = s3.buckets['heart-up']
+    # uploaded_file = fileupload_params[:file]
         
-    file_name = uploaded_file.original_filename
-    file_full_path="images/"+file_name
-    object = bucket.objects[file_full_path]
-    object.write(file ,:acl => :public_read)
+    # file_name = uploaded_file.original_filename
+    # file_full_path="images/"+file_name
+    # object = bucket.objects[file_full_path]
+    # object.write(file ,:acl => :public_read)
 
 
-    @profile_image[:profile_image] = "http://s3-ap-northeast-1.amazonaws.com/heart-up/images/#{file_name}"
+    # @profile_image[:profile_image] = "http://s3-ap-northeast-1.amazonaws.com/heart-up/images/#{file_name}"
 
 
-    if @profile_image.save
-      render json: @profile_image
-    else 
-      head 500
-    end
+    # if @profile_image.save
+    #   render json: @profile_image
+    # else 
+    #   head 500
+    # end
   end
 
   private 
