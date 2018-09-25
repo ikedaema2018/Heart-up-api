@@ -45,6 +45,12 @@ class ProfileImagesController < ApplicationController
     s3 = Aws::S3::Resource.new(client: client)
 
     bucket = s3.bucket('heartup')
+
+    #もし既にアップロードされていたら既存のものを削除
+    if !@profile_image[:profile_image].nil?
+      bucket.object(@profile_image[:profile_image]).delete
+    end
+
     uploaded_file = fileupload_params[:file]
         
     file_name = uploaded_file.original_filename
