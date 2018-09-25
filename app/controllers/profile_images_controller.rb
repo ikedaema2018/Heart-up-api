@@ -50,7 +50,7 @@ class ProfileImagesController < ApplicationController
     file_name = uploaded_file.original_filename
     file_full_path="images/"+file_name
     object = bucket.object(file_full_path)
-    object.write(file ,:acl => :public_read)
+    object.write(uploaded_file ,:acl => :public_read)
 
 
     @profile_image[:profile_image] = "http://s3-ap-northeast-1.amazonaws.com/heart-up/images/#{file_name}"
