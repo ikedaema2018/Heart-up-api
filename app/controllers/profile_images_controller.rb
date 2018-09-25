@@ -1,8 +1,7 @@
 class ProfileImagesController < ApplicationController
   def update
-    p "1"
+    @profile_image = User.find(@user.id)
     AWS.config(access_key_id: 'AKIAIL6MGOAT5XBVA2NQ', secret_access_key: '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', region: 'ap-northeast-1')
-    p "2"
     s3 = AWS::S3.new
     bucket = s3.buckets['heart-up']
     uploaded_file = fileupload_params[:file]
@@ -12,16 +11,18 @@ class ProfileImagesController < ApplicationController
     file_full_path="images/"+file_name
     object = bucket.objects[file_full_path]
     object.write(file ,:acl => :public_read)
-    p "4"
-    @s3image.file_name="http://s3-ap-northeast-1.amazonaws.com/heart-up/images/#{file_name}"
 
-    p "5"
-    @profile_image = User.find(@user.id)
+
+    @profile_image.profile_image="http://s3-ap-northeast-1.amazonaws.com/heart-up/images/#{file_name}"
+
+
     if @profile_image.update(profile_image: file_name)
       render json: @profile_image
     else 
       head 500
     end
+
+    
 
     # test, development
     # output_path = Rails.root.join('public/profile_image', @path_name)
