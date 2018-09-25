@@ -54,7 +54,7 @@ class ProfileImagesController < ApplicationController
     object.upload_file(uploaded_file.tempfile, acl: "public-read")
 
 
-    @profile_image[:profile_image] = "http://s3-ap-northeast-1.amazonaws.com/heartup/images/#{file_name}"
+    @profile_image[:profile_image] = file_name
 
 
     if @profile_image.save
