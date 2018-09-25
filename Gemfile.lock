@@ -742,7 +742,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
-  aws-sdk
+  aws-sdk (~> 3)
   byebug
   fcm
   listen (>= 3.0.5, < 3.2)
