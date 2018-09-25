@@ -44,12 +44,12 @@ class ProfileImagesController < ApplicationController
     )
     s3 = Aws::S3::Resource.new(client: client)
 
-    bucket = s3.bucket['heart-up']
+    bucket = s3.bucket('heart-up')
     uploaded_file = fileupload_params[:file]
         
     file_name = uploaded_file.original_filename
     file_full_path="images/"+file_name
-    object = bucket.objec(file_full_path)
+    object = bucket.object(file_full_path)
     object.write(file ,:acl => :public_read)
 
 
