@@ -49,7 +49,7 @@ class ProfileImagesController < ApplicationController
         
     file_name = uploaded_file.original_filename
     file_full_path="images/"+file_name
-    object = bucket.object[file_full_path]
+    object = bucket.objec(file_full_path)
     object.write(file ,:acl => :public_read)
 
 
