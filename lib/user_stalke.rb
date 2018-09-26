@@ -19,8 +19,8 @@ module UserStalke
       
 
       # binding.pry
-      if (f.ido.abs - @user_locate.ido.abs).abs <= 0.0006 && (f.keido.abs - @user_locate.keido.abs).abs <= 0.0006
-        p "緯度と経度が0.0005以内だよ"
+      if (f.ido.abs - @user_locate.ido.abs).abs <= 0.006 && (f.keido.abs - @user_locate.keido.abs).abs <= 0.006
+        p "緯度と経度が0.005以内だよ"
         #アラートに登録する
         closer_alert = CloserAlert.new
         closer_alert.user_id = @user_locate.user_id
@@ -32,34 +32,34 @@ module UserStalke
         f.target_user.user_id = @user_id
         p f.target_user
         f.target_user.save
-      elsif (f.ido.abs - @user_locate.ido.abs).abs <= 0.0006
-        p "緯度が0.0005以内だよ！"
+      elsif (f.ido.abs - @user_locate.ido.abs).abs <= 0.006
+        p "緯度が0.005以内だよ！"
         if f.ido - @user_locate.ido >= 0
-          f.keido -= 0.0010
+          f.keido -= 0.010
         else
-          f.keido += 0.0010
+          f.keido += 0.010
         end
         f.save
-      elsif (f.keido.abs - @user_locate.keido.abs).abs <= 0.0006
+      elsif (f.keido.abs - @user_locate.keido.abs).abs <= 0.006
         p "経度が0.0005以内だよ！"
         if f.keido - @user_locate.keido >= 0
-          f.ido -= 0.0010
+          f.ido -= 0.010
         else
-          f.ido += 0.0010
+          f.ido += 0.010
         end
         f.save
       else
         p 'ダメダメ'
-        if f.ido - @user_locate.ido >= 0.0006
-          f.ido -= 0.0005
-        elsif @user_locate.ido - f.ido >= 0.0006
-          f.ido += 0.0005
+        if f.ido - @user_locate.ido >= 0.006
+          f.ido -= 0.005
+        elsif @user_locate.ido - f.ido >= 0.006
+          f.ido += 0.005
         end
         
-        if f.keido - @user_locate.keido >= 0.0006
-          f.keido -= 0.0005
-        elsif @user_locate.keido - f.keido >= 0.0006
-          f.keido += 0.0005
+        if f.keido - @user_locate.keido >= 0.006
+          f.keido -= 0.005
+        elsif @user_locate.keido - f.keido >= 0.006
+          f.keido += 0.005
         end
         f.save
       end
