@@ -47,8 +47,6 @@ class UsersController < ApplicationController
     #１時間前までに更新があったユーザーを表示はあとで
     # @users = UserLocate.where("updated_at > ?", one_hour_ago)
     @users = UserLocate.all
-    p "---------------------------------------------"
-    p @users
     render json: @users
   end
 

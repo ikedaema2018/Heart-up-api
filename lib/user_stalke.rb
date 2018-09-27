@@ -64,7 +64,7 @@ module UserStalke
         end
         f.save
       end
-      p f.keido
+    p f.keido
     p @user_locate.keido
 
     p "________________"
