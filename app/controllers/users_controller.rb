@@ -42,11 +42,13 @@ class UsersController < ApplicationController
   end
 
   def one_hour_ago_user
-    today = DateTime.now()
-    one_hour_ago = today - Rational(1, 24)
+    # today = DateTime.now()
+    # one_hour_ago = today - Rational(1, 24)
     #１時間前までに更新があったユーザーを表示はあとで
     # @users = UserLocate.where("updated_at > ?", one_hour_ago)
     @users = UserLocate.all
+    p "---------------------------------------------"
+    p @users
     render json: @users
   end
 
