@@ -64,14 +64,14 @@ module UserStalke
         end
         f.save
       end
-                  
-    end
-    p f.keido
+      p f.keido
     p @user_locate.keido
 
     p "________________"
     p f.ido
     p @user_locate.ido
+                  
+    end
   end
 
   module_function :user_stalke
