@@ -41,7 +41,7 @@ module UserStalke
         end
         f.save
       elsif (f.keido.abs - @user_locate.keido.abs).abs <= 0.006
-        p "経度が0.0005以内だよ！"
+        p "経度が0.005以内だよ！"
         if f.keido - @user_locate.keido >= 0
           f.ido -= 0.010
         else

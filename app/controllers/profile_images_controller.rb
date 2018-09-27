@@ -58,7 +58,6 @@ class ProfileImagesController < ApplicationController
     # object.write(uploaded_file ,:acl => :public_read)
     object.upload_file(uploaded_file.tempfile, acl: "public-read")
 
-
     @profile_image[:profile_image] = file_name
 
 

@@ -28,7 +28,8 @@ class NayamiCommentsController < ApplicationController
         token = @push_info[:fcm_token]
         opts = {
           "notification" => {
-            "body" => "あなたのシャボン玉が破裂しました！"
+            "body" => "あなたのシャボン玉が破裂しました！",
+            'badge'=> 1
           }
         }
         ret = fcm.send_with_notification_key(token, opts)
