@@ -11,4 +11,6 @@ class UserSerializer < ActiveModel::Serializer
 
   has_many :nayami_comments
   has_many :locate_infos
+  has_one :user_locate
+  # has_many :target_users
 end
