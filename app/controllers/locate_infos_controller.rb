@@ -4,19 +4,6 @@ class LocateInfosController < ApplicationController
 
   def index
     @locate_infos = LocateInfo.where(:life_flag => false)
-    # today = DateTime.now()
-    # one_hour_ago = today - Rational(1, 24)
-    # @users = UserLocate.where("updated_at > ?", one_hour_ago)
-    
-    # @mass_info = {}
-    # @mass_info["locate_infos"] = @locate_infos.to_json
-    # @mass_info["users"] = @users.to_json
-    # p @mass_info
-    # p @locate_infos
-    # render json: {
-    #   locate_infos: @locate_infos,
-    #   users: @users
-    # }
     render json: @locate_infos
   end
 
@@ -46,7 +33,7 @@ class LocateInfosController < ApplicationController
       if @locate_info[:life_flag] == true
         #取得したlocate_infoのsplash_yonda_checkがfalseだった時、そこのnayami_commentsを全部trueにしてsplash_yonda_flagもtrueに
         @splash_yonda_check = SplashYondaCheck.find_by(locate_info_id: @locate_info[:id])
-  
+        p "-----------------------?????????-----------------------"
         if @splash_yonda_check[:yonda_flag] == false
           @splash_yonda_check.update(yonda_flag: true)
         end
