@@ -25,7 +25,6 @@ class LocateInfosController < ApplicationController
       @user_id = MostCloser.close_of_distance(@locate_info[:ido], @locate_info[:keido], @locate_info[:user_id])
 
       @target_user = TargetUser.new(user_id: @user_id, locate_info_id: @locate_info[:id])
-
       @target_user.save
 
       render json: @locate_info
@@ -45,7 +44,7 @@ class LocateInfosController < ApplicationController
         end
       end
     end
-    render json: @locate_info, include: ['nayami_comments', 'nayami_comments.user', 'user']
+    render json: @locate_info, include: ['nayami_comments', 'nayami_comments.user', 'user', 'first_locates']
   end
 
   # ユーザーIDに一致したコメントを返す
