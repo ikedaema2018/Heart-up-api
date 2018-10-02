@@ -4,7 +4,7 @@ class LocateInfosController < ApplicationController
 
   def index
     @locate_infos = LocateInfo.where(:life_flag => false)
-    render json: @locate_infos
+    render json: @locate_infos, include: ['user', 'nayami_comments']
   end
 
   def create
