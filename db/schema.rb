@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180922024147) do
+ActiveRecord::Schema.define(version: 20181002063756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20180922024147) do
     t.integer "user_id"
     t.integer "locate_info_id"
     t.boolean "close_flag", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "first_locates", force: :cascade do |t|
+    t.integer "locate_info_id"
+    t.integer "user_id"
+    t.float "ido"
+    t.float "keido"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,6 +62,13 @@ ActiveRecord::Schema.define(version: 20180922024147) do
   create_table "shabon_alerts", force: :cascade do |t|
     t.integer "locate_info_id"
     t.boolean "splash"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "splash_yonda_checks", force: :cascade do |t|
+    t.string "locate_info_id"
+    t.boolean "yonda_flag", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

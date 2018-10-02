@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  locate_info_id: 1
+  user_id: 1
+  ido: 1.5
+  keido: 1.5
+
+two:
+  locate_info_id: 1
+  user_id: 1
+  ido: 1.5
+  keido: 1.5

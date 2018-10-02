@@ -1,0 +1,2 @@
+class FirstLocate < ApplicationRecord
+end
