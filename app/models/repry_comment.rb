@@ -1,0 +1,2 @@
+class RepryComment < ApplicationRecord
+end

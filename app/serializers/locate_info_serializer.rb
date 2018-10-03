@@ -11,7 +11,7 @@ class LocateInfoSerializer < ActiveModel::Serializer
   has_many :shabon_alerts
   has_one :target_user
   has_one :splash_yonda_check
-  has_many :first_locates
+  has_one :first_locate
   class NayamiCommentSerializer < ActiveModel::Serializer
     attributes :id,
              :nayami_comment,
