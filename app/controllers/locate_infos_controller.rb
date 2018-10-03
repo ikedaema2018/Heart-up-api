@@ -53,12 +53,6 @@ class LocateInfosController < ApplicationController
      render json: @locate_infos
   end
 
-  # def get_my_shabon_detail
-  #   @id = params[:id]
-  #   @locate_info = LocateInfo.find(@id)
-  #   render json: @locate_info
-  # end
-
   def distance
     UserStalke.user_stalke
     # render json: locate_infos[0]
