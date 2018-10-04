@@ -17,7 +17,7 @@ class LocateInfoSerializer < ActiveModel::Serializer
              :nayami_comment,
              :user_id,
              :yonda_flag,
-             :created_day
+             :created_at
   belongs_to :user
   end
 end
