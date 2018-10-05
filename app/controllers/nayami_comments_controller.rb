@@ -66,6 +66,6 @@ class NayamiCommentsController < ApplicationController
   private
 
   def create_params
-    params.fetch(:nayami_comment, {nayami_comment: nil, stamp_id: nil}).permit(:locate_info_id).merge(user_id: @user.id)
+    params.fetch(:nayami_comment, {nayami_comment: nil, stamp_id: nil}).permit(:locate_info_id, :nayami_comment, :stamp_id).merge(user_id: @user.id)
   end
 end
