@@ -1,6 +1,6 @@
 class NayamiCommentsController < ApplicationController
   def create 
-    p params
+    p params[:nayami_comment][:stamp_id]
     p "-----------create_parameter-----------------"
     @nayami_comment = NayamiComment.new(create_params)
     p @nayami_comment
@@ -66,6 +66,5 @@ class NayamiCommentsController < ApplicationController
 
   def create_params
     params.require(:nayami_comment).permit(:locate_info_id, :nayami_comment).merge(user_id: @user.id)
-    params.fetch(:nayami_comment => :stamp_id , {})
   end
 end
