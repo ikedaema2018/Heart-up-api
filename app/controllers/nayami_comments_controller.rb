@@ -2,6 +2,7 @@ class NayamiCommentsController < ApplicationController
   def create 
     p "-----------create_parameter-----------------"
     @nayami_comment = NayamiComment.new(create_params)
+    p @nayami_comment
     p "------------save-----------------------------"
     unless @nayami_comment.save # もし、memoが保存できなかったら
       p "-------saveできず---------------------------------------"
