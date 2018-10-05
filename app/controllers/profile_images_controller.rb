@@ -53,6 +53,7 @@ class ProfileImagesController < ApplicationController
     #もし既にアップロードされていたら既存のものを削除
     if @profile_image[:profile_image].present?
       p "---------------delete--------------------"
+      p @profile_image[:profile_image]
       client.delete_object(:bucket => 'heartup', :key => @profile_image[:profile_image])
       p "---------------end of delete---------------"
     end
