@@ -1,7 +1,10 @@
 class NayamiCommentsController < ApplicationController
   def create 
+    p "-----------create_parameter-----------------"
     @nayami_comment = NayamiComment.new(create_params)
+    p "------------save-----------------------------"
     unless @nayami_comment.save # もし、memoが保存できなかったら
+      p "-------saveできず---------------------------------------"
       render json:@error_message = [@nayami_comment.errors.full_messages].compact # エラーが入ってるインスタンス変数を定義
     else
       # Nayami_commentの数が９個になったらlocate_infoをfalseに
@@ -60,6 +63,6 @@ class NayamiCommentsController < ApplicationController
   private
 
   def create_params
-    params.require(:nayami_comment).fetch(:nayami_comment, {}, :stamp_id, {}).permit(:locate_info_id, :nayami_comment).merge(user_id: @user.id)
+    params.require(:nayami_comment).fetch(:nayami_comment, {}, :stamp_id, {}).permit(:locate_info_id).merge(user_id: @user.id)
   end
 end
