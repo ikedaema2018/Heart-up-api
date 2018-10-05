@@ -50,8 +50,10 @@ class ProfileImagesController < ApplicationController
     if @profile_image[:profile_image].present?
       p "---------------delete--------------------"
       p @profile_image[:profile_image]
-      client.delete_object(:bucket => 'heartup', :key => @profile_image[:profile_image])
+      @nakami = client.delete_object(:bucket => 'heartup', :key => @profile_image[:profile_image])
       p "---------------end of delete---------------"
+      p @nakami
+      p "delete------nakami---------------------"
     elsif 
       p "--------------elseif----------------------------"
       p @profile_image[:profile_image]
