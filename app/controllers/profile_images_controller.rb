@@ -48,15 +48,12 @@ class ProfileImagesController < ApplicationController
 
     #もし既にアップロードされていたら既存のものを削除
     if @profile_image[:profile_image].present?
-      p "---------------delete--------------------"
+      p "---------------delete_image--------------------"
       p @profile_image[:profile_image]
       @nakami = client.delete_object(:bucket => 'heartup', :key => @profile_image[:profile_image])
       p "---------------end of delete---------------"
       p @nakami
       p "delete------nakami---------------------"
-    elsif 
-      p "--------------elseif----------------------------"
-      p @profile_image[:profile_image]
     end
 
     uploaded_file = fileupload_params[:file]
@@ -71,6 +68,8 @@ class ProfileImagesController < ApplicationController
 
 
     if @profile_image.save
+      p "-------now_profile_image--------------"
+      p @profile_image[:profile_image]
       render json: @profile_image
     else 
       head 500
