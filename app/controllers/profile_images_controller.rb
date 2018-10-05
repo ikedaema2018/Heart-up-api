@@ -53,6 +53,7 @@ class ProfileImagesController < ApplicationController
       client.delete_object(:bucket => 'heartup', :key => @profile_image[:profile_image])
       p "---------------end of delete---------------"
     elsif 
+      p "--------------elseif----------------------------"
       p @profile_image[:profile_image]
     end
 
