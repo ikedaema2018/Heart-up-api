@@ -47,7 +47,7 @@ class ProfileImagesController < ApplicationController
     bucket = s3.bucket('heartup')
 
     if @profile_image[:profile_image].nil?
-      p "------dawdwadaw-------dwadaw----------dwawada-----dawdawd"
+      p "------dawdwadaw-------dwadaw----------dwawada-----dawd"
     end
 
     #もし既にアップロードされていたら既存のものを削除
