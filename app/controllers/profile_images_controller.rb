@@ -45,8 +45,12 @@ class ProfileImagesController < ApplicationController
     s3 = Aws::S3::Resource.new(client: client)
 
     bucket = s3.bucket('heartup')
-    #もし既にアップロードされていたら既存のものを削除
+
     if @profile_image[:profile_image].nil?
+      p "------dawdwadaw-------dwadaw----------dwawada-----dawdawd"
+    end
+    #もし既にアップロードされていたら既存のものを削除
+    if !@profile_image[:profile_image].nil?
       p "---------------delete--------------------"
       client.delete_object(:bucket => 'heartup', :key => @profile_image[:profile_image])
       p "---------------end of delete---------------"
