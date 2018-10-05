@@ -46,9 +46,9 @@ class ProfileImagesController < ApplicationController
 
     bucket = s3.bucket('heartup')
     #もし既にアップロードされていたら既存のものを削除
-    # if !@profile_image[:profile_image].nil?
-      # client.delete_object(:bucket => 'heartup', :key => @profile_image[:profile_image])
-    # end
+    if !@profile_image[:profile_image].nil?
+      client.delete_object(:bucket => 'heartup', :key => @profile_image[:profile_image])
+    end
 
     uploaded_file = fileupload_params[:file]
         
