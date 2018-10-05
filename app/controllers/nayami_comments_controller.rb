@@ -1,5 +1,6 @@
 class NayamiCommentsController < ApplicationController
   def create 
+    p params
     p "-----------create_parameter-----------------"
     @nayami_comment = NayamiComment.new(create_params)
     p @nayami_comment
