@@ -51,7 +51,7 @@ class ProfileImagesController < ApplicationController
       p "---------------delete_image--------------------"
       p @profile_image[:profile_image]
       p "./images/" + @profile_image[:profile_image]
-      @nakami = client.delete_object(:bucket => 'heartup', :key => "./kmkklklnlnklkn/" + @profile_image[:profile_image])
+      @nakami = client.delete_object(:bucket => 'heartup', :key => "images/" + @profile_image[:profile_image])
       p "---------------end of delete---------------"
       p @nakami
       p "delete------nakami---------------------"
