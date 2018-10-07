@@ -14,6 +14,6 @@ class ReplyCommentsController < ApplicationController
 
   private
     def create_params
-      params.require(:reply_comment).permit(:reply_comment, :nayami_comemnt_id).merge(user_id: @user.id)
+      params.require(:reply_comment).permit(:reply_comment, :nayami_comment_id).merge(user_id: @user.id)
     end
 end
