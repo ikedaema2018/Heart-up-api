@@ -2,6 +2,7 @@ class ReplyCommentsController < ApplicationController
   def create
     @reply_comment = ReplyComment.new(create_params)
     # エラー処理
+    p "--------------------@reply_comment-----------------"
     unless @reply_comment.save # もし、memoが保存できなかったら
       render json:@error_message = [@reply_comment.errors.full_messages].compact # エラーが入ってるインスタンス変数を定義
     else
