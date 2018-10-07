@@ -1,6 +1,5 @@
 class ReplyCommentsController < ApplicationController
   def create
-    p params
     p "--------------------@reply_comment-----------------"
     p create_params
     @reply_comment = ReplyComment.new(create_params)
