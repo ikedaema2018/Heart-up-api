@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post '/reply_comments', to: 'reply_comments#create'
+
   post 'user_locates/update', to: 'user_locates#update'
 
   get 'shabon_alerts/show', to: 'shabon_alerts#show'
