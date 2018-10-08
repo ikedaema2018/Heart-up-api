@@ -3,4 +3,5 @@ class ReplyCommentSerializer < ActiveModel::Serializer
              :reply_comment,
              :nayami_comment_id,
              :user_id
+  belongs_to :user
 end

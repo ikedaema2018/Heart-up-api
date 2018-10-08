@@ -21,5 +21,12 @@ class LocateInfoSerializer < ActiveModel::Serializer
              :created_at
   belongs_to :user
   has_many :reply_comments
+    class ReplyCommentSerializer < ActiveModel::Serializer
+      attributes :id,
+             :reply_comment,
+             :nayami_comment_id,
+             :user_id
+      belongs_to :user
+    end
   end
 end
