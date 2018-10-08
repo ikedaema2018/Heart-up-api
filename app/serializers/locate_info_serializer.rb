@@ -20,5 +20,6 @@ class LocateInfoSerializer < ActiveModel::Serializer
              :stamp_id,
              :created_at
   belongs_to :user
+  has_many :reply_comments
   end
 end
