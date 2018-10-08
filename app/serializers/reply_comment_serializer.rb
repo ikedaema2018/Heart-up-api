@@ -1,6 +1,6 @@
 class ReplyCommentSerializer < ActiveModel::Serializer
   attributes :id,
-             :replt_comment,
+             :reply_comment,
              :nayami_comment_id,
              :user_id
 end
