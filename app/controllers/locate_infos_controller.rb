@@ -33,7 +33,7 @@ class LocateInfosController < ApplicationController
 
   def show
     @id = params[:id]
-    @locate_info = LocateInfo.find(@id)
+    @locate_info = LocateInfo.where(id: @id)
     if @locate_info[:user_id] == @user.id
       NayamiComment.where(locate_info_id: @locate_info[:id]).update_all(yonda_flag: true)
       if @locate_info[:life_flag] == true
