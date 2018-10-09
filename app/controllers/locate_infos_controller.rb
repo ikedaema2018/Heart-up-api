@@ -34,8 +34,6 @@ class LocateInfosController < ApplicationController
   def show
     @id = params[:id]
     @locate_info = LocateInfo.where(id: @id)
-    p "--------------locate_info-----------------------"
-    p @locate_info
     if @locate_info[:user_id] == @user.id
       NayamiComment.where(locate_info_id: @locate_info[:id]).update_all(yonda_flag: true)
       if @locate_info[:life_flag] == true
@@ -46,6 +44,7 @@ class LocateInfosController < ApplicationController
         end
       end
     end
+    p "error--------------------------------------------------------------------------------------"
     render json: @locate_info, include: ['nayami_comments', 'nayami_comments.user', 'nayami_comments.reply_comments', 'nayami_comments.reply_comments.user','user', 'first_locate']
   end
 
