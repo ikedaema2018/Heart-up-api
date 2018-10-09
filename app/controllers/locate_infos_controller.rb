@@ -45,7 +45,7 @@ class LocateInfosController < ApplicationController
       end
     end
     p "error--------------------------------------------------------------------------------------"
-    render json: @locate_info, include: ['nayami_comments', 'nayami_comments.user', 'nayami_comments.reply_comments', 'nayami_comments.reply_comments.user','user', 'first_locate']
+    # render json: @locate_info, include: ['nayami_comments', 'nayami_comments.user', 'nayami_comments.reply_comments', 'nayami_comments.reply_comments.user','user', 'first_locate']
   end
 
   # ユーザーIDに一致したコメントを返す
