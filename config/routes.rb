@@ -33,4 +33,6 @@ Rails.application.routes.draw do
   get '/closer_alerts', to: 'closer_alerts#user_alert'
 
   post '/push_infos', to: 'push_infos#save_token'
+
+  post '/reactions', to: 'reactions#create'
 end
