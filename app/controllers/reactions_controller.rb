@@ -1,5 +1,7 @@
 class ReactionsController < ApplicationController
   def create
+    p "---------daw-------------------------"
+    p params
     @reaction = Reaction.new(create_params)
     unless @reaction.save
       render json:@error_message = [@nayami_comment.errors.full_messages].compact # エラーが入ってるインスタンス変数を定義
