@@ -27,7 +27,7 @@ class LocateInfoSerializer < ActiveModel::Serializer
              :reply_comment,
              :nayami_comment_id,
              :user_id
-             has_many :reactions
+      has_many :reactions
       belongs_to :user
     end
   end
