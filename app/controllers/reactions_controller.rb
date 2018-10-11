@@ -10,6 +10,6 @@ class ReactionsController < ApplicationController
 
   private
   def create_params
-    params.fetch(:reaction, {nayami_comment_id: nil, reply_comment_id: nil, line: nil, sad: nil, angry: nil}).merge(user_id: @user.id)
+    params.fetch(:reaction, {nayami_comment_id: nil, reply_comment_id: nil}).permit(:reaction_id).merge(user_id: @user.id)
   end
 end
