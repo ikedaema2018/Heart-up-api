@@ -5,7 +5,8 @@ class LocateInfoSerializer < ActiveModel::Serializer
              :keido,
              :user_id,
              :color,
-             :life_flag
+             :life_flag,
+             :created_at
   belongs_to :user
   has_many :nayami_comments
   has_many :shabon_alerts
