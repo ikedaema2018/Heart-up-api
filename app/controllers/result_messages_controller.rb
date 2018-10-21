@@ -1,5 +1,5 @@
 class ResultMessagesController < ApplicationController
-  def :update
+  def update
     @result_message = Result.find_or_initialize_by(locate_info_id: create_params[:locate_info_id])
     if @result_message.update(create_params)
       render @result_message
@@ -8,13 +8,10 @@ class ResultMessagesController < ApplicationController
     end
   end
 
-  def :show
-  end
-
 
   private 
 
   def create_params
-    # params.require(:result_message).permit(message: )
+    params.require(:result_message).permit(message: )
   end
 end
