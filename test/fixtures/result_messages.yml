@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  result_message: MyString
+  locate_info_id: 1
+
+two:
+  result_message: MyString
+  locate_info_id: 1
