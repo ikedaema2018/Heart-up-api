@@ -1,7 +1,6 @@
 class ResultMessagesController < ApplicationController
   def update
-    p "----------------dadada---------------------------------------------------------"
-    @result_message = Result.find_or_initialize_by(locate_info_id: create_params[:locate_info_id])
+    @result_message = ResultMessage.find_or_initialize_by(locate_info_id: create_params[:locate_info_id])
     if @result_message.update(create_params)
       render @result_message
     else
