@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/result_messages/update', to: 'result_messages#update'
+  post '/result_messages/update', to: 'result_messages#update'
 
 
   post '/reply_comments', to: 'reply_comments#create'
