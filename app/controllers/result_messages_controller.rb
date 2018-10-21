@@ -12,6 +12,6 @@ class ResultMessagesController < ApplicationController
   private 
 
   def create_params
-    params.require(:result_message).permit(message: )
+    params.require(:result_messages).permit(:result_message, :locate_info_id)
   end
 end
