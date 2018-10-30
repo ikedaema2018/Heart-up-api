@@ -4,7 +4,7 @@ class AdminUsersController < ApplicationController
   def create
     user = User.find_by(email: params[:admin][:email])
 
-    if user && user.password_digest == params[:admin][:password]
+    if user && user.password_digest.authenticate(params[:admin][:password])
       render json: user
     else
       head 403
