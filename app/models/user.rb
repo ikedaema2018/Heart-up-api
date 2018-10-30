@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_one :user_locate
   # has_many :target_users
   # has_and_belongs_to_many :shabon_alerts
+  has_secure_password
 
   validates :email, uniqueness: true
 end

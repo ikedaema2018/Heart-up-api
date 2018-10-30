@@ -18,6 +18,7 @@ gem 'active_model_serializers'
 gem 'whenever', require: false
 gem "fcm"
 gem 'aws-sdk', '~> 3'
+gem 'bcrypt', '3.1.11'
 
 
 
